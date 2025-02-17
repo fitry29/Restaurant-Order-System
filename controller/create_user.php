@@ -6,6 +6,8 @@
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $pass = mysqli_real_escape_string($conn, $_POST['password']);
         $retype_pass = mysqli_real_escape_string($conn, $_POST['retype_password']);
+        $table_no = mysqli_real_escape_string($conn, $_POST['$table_no']);
+
 
         if($name == "admin" && $email == "admin@warong.com"){
             $type = 'admin';
@@ -32,7 +34,7 @@
                 $sql = "INSERT INTO customers (email,name,password,type) VALUES ('$email', '$name' , '$hashed_pass', '$type')";
     
                 if(mysqli_query($conn,$sql)){
-                    header("Location: /order-system/index.php");
+                    header("Location: /order-system/index.php?table_no=".$table_no);
                     exit;
                 }else{
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);

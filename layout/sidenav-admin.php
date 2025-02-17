@@ -11,7 +11,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
                     Orders
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/order-system/pages/customers.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                     Customer
                 </a>

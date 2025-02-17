@@ -71,6 +71,7 @@
                                                         </div>";
                                                     }
                                             ?>
+                                            <input class="form-control" id="table_no" type="hidden" name="table_no" value = "<?php echo $table_no?>"/>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="email" name="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email address</label>

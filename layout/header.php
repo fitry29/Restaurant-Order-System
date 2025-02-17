@@ -1,3 +1,17 @@
+<?php 
+    include('../db/db_connection.php');
+    
+    if($_SESSION['user_name'] != "admin"){
+        $cart_id = $_SESSION['cart_id'];
+        $sql = "SELECT COUNT(*) FROM cart_item WHERE cart_id = $cart_id";
+    
+        $result = mysqli_query($conn, $sql);
+    
+        $row = mysqli_fetch_row($result);
+    }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,7 +30,15 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html"><b>Warong's</b></a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="d-flex btn btn-link position-relative btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+                <i class="fas fa-bars"></i>
+                <?php if($_SESSION['user_name'] != "admin"): ?>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <?php echo $row[0] ?>
+                            <span class="visually-hidden">unread messages</span>
+                    </span>
+                <?php endif; ?>    
+            </button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             </form>
